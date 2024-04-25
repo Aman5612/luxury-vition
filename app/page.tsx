@@ -1,58 +1,18 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import Swiper from "swiper";
 import "swiper/swiper-bundle.css";
-import Image from "next/image";
-import Navbar from "@/Components/Navbar";
+import Navbar from "@/Components/Navbar/Navbar";
 import Loader from "@/Components/Loader";
 import HomePage from "@/Components/HomePage";
 import Page2 from "@/Components/Page2";
-import FlotingNavBar from "@/Components/FlotingNavBar";
+import Footer from "@/Components/Footer/Footer";
+import Page3 from "@/Components/Page3/Page3";
 
 export default function Home() {
   const ref = useRef(null);
   useEffect(() => {
-    // function loco() {
-    //   gsap.registerPlugin(ScrollTrigger);
-
-    //   // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
-
-    //   const locoScroll = new LocomotiveScroll({
-    //     el: document.querySelector(".main"),
-    //     smooth: true,
-    //   });
-
-    //   // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
-    //   locoScroll.on("scroll", ScrollTrigger.update);
-
-    //   // tell ScrollTrigger to use these proxy methods for the ".main" element since Locomotive Scroll is hijacking things
-    //   ScrollTrigger.scrollerProxy(".main", {
-    //     scrollTop(value) {
-    //       return arguments.length
-    //         ? locoScroll.scrollTo(value, 0, 0)
-    //         : locoScroll.scroll.instance.scroll.y;
-    //     }, // we don't have to define a scrollLeft because we're only scrolling vertically.
-    //     getBoundingClientRect() {
-    //       return {
-    //         top: 0,
-    //         left: 0,
-    //         width: window.innerWidth,
-    //         height: window.innerHeight,
-    //       };
-    //     },
-    //     // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
-    //     pinType: document.querySelector(".main").style.transform
-    //       ? "transform"
-    //       : "fixed",
-    //   });
-
-    //   // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll.
-    //   ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-
-    //   // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
-    //   ScrollTrigger.refresh();
-    // }
     function page2TopAnim() {
       gsap.from(".first-text h3, .second-text h3", {
         y: 60,
@@ -230,16 +190,6 @@ export default function Home() {
       }, 400);
     });
   });
-  const [showFlotingBar, setShowFlotingBar] = useState(true);
-
-  const handleFloatingBar = () => {
-    if (window.scrollY > 100) {
-      setShowFlotingBar(true);
-      console.log("show");
-    } else {
-      setShowFlotingBar(false);
-    }
-  };
 
   return (
     <>
@@ -247,15 +197,18 @@ export default function Home() {
         ref={ref}
         id="main-container"
         data-scroll-container
-        className="main  min-h-screen"
+        className="main  h-screen"
       >
-        {showFlotingBar ? <FlotingNavBar /> : null}
+        {/* {showFlotingBar ? <FlotingNavBar /> : null} */}
         <Navbar />
         <Loader />
         <HomePage />
         <Page2 />
+        <Page2 />
+        <Page2 />
+        <Page3 />
 
-        <div className="page3">
+        {/* <div className="page3">
           <div className="page3-text">
             <h4>
               Agency & Venture <span>Models</span>{" "}
@@ -636,63 +589,8 @@ export default function Home() {
             </h4>
             <h1>Meet your team</h1>
           </div>
-        </div>
-        <footer className="w-[100vw]">
-          <div className="footer-top">
-            <div className="first">
-              <div className="first-top">
-                <h2>Relax. We got you.</h2>
-                <button>Take a seat</button>
-              </div>
-              <div className="first-btm">
-                <h4>San Diego—California</h4>
-                <h4>Paris—France</h4>
-              </div>
-            </div>
-            <div className="second">
-              <div className="second-one">
-                <div className="span">
-                  <span>Home</span>
-                  <span>Work</span>
-                  <span>About</span>
-                  <span>Services & Models</span>
-                  <span>Contact</span>
-                </div>
-                <div className="span1">
-                  <span>biz@rejouice.com</span>
-                </div>
-              </div>
-              <div className="second-two">
-                <div className="span">
-                  <span>
-                    X<i className="ri-arrow-right-up-line"></i>
-                  </span>
-                  <span>
-                    Instagram<i className="ri-arrow-right-up-line"></i>
-                  </span>
-                  <span>
-                    LinkedIn<i className="ri-arrow-right-up-line"></i>
-                  </span>
-                </div>
-                <div className="span1">
-                  <span>© 2024 legal </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <h1>
-              <span>R</span>
-              <span>E</span>
-              <span>J</span>
-              <span>O</span>
-              <span>U</span>
-              <span>I</span>
-              <span>C</span>
-              <span>E</span>
-            </h1>
-          </div>
-        </footer>
+        </div> */}
+        <Footer />
       </main>
     </>
   );

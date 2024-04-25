@@ -875,27 +875,17 @@ footer .footer-top {
 }
 .footer-top .second {
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 100px;
   margin-top: -2.5vw;
   padding-right: 3vw;
   color: #fff;
 }
-.second .second-one {
-  display: flex;
-  flex-direction: column;
-  gap: 15vw;
-}
+
 .second .second-one .span span {
-  display: flex;
-  flex-direction: column;
   position: relative;
   cursor: pointer;
 }
-.second .second-one .span > span::after,
-.second .second-one .span1 > span::after {
+.second .second-one > span::after,
+.second .second-one > span::after {
   content: "";
   position: absolute;
   height: 1px;
@@ -912,13 +902,8 @@ footer .footer-top {
   transform-origin: bottom left;
   transform: scaleX(1);
 }
-.second .second-two {
-  display: flex;
-  flex-direction: column;
-  gap: 17.5vw;
-}
+
 .second .second-two .span span {
-  display: flex;
   position: relative;
   cursor: pointer;
 }
@@ -963,17 +948,17 @@ footer .footer-bottom h1 span {
   margin-top: -3.2vw;
   color: #fff;
 }
-.elem h1{
+.elem h1 {
   transition: all ease 0.3s;
 }
-.elem:hover h1{
+.elem:hover h1 {
   transform: translateY(-100%);
 }
-.discover-btn{
+.discover-btn {
   position: relative;
   overflow: hidden;
 }
-.discover-btn::before{
+.discover-btn::before {
   content: "";
   position: absolute;
   height: 100%;
@@ -985,12 +970,12 @@ footer .footer-bottom h1 span {
   top: 0;
   opacity: 0;
 }
-.discover-btn:hover::before{
-  left:0;
+.discover-btn:hover::before {
+  left: 0;
   opacity: 1;
   border-radius: 0;
   z-index: 9;
 }
-.discover-btn:hover span{
+.discover-btn:hover span {
   color: #fff;
 }

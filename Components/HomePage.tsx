@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useGlobalState } from "@/context/StateProvider";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Image from "next/image";
@@ -11,6 +11,7 @@ const HomePage = () => {
   const { setMenu } = useGlobalState() as any;
   const btnRef = React.useRef<HTMLButtonElement>(null);
   const cursorRef = React.useRef<HTMLDivElement>(null);
+  const [hoverPlay, setHoverPlay] = useState(false);
 
   useGSAP(() => {
     gsap.to(" .Links ", {
@@ -68,15 +69,30 @@ const HomePage = () => {
   return (
     <div className="page1 w-full h-[100vh] ">
       <div onClick={handleCursorClick} className="cursor" ref={cursorRef}>
-        <h4>Play Reel</h4>
+        <span>
+          <h4
+            onMouseEnter={() => setHoverPlay(true)}
+            onMouseLeave={() => setHoverPlay(false)}
+            onClick={() => {
+              alert("play reel");
+            }}
+          >
+            Play Reel
+          </h4>
+          <div
+            className={`absolute bottom-[2px] left-0 bg-black h-[1.5px] transform transition-all ease duration-500 ${
+              hoverPlay ? "w-[45%]" : "w-0"
+            }`}
+          ></div>
+        </span>
       </div>
 
       <video
         autoPlay
         loop
         muted
-        src="/Assets/LV-4.mp4"
-        className="w-[100vw] h-[100vh]"
+        src="/Assets/LV-1-vmake.mp4"
+        className="w-[100vw] h-[100vh] object-contain"
       ></video>
 
       <div
@@ -117,7 +133,7 @@ const HomePage = () => {
           </h2>
         </nav>
 
-        <h2 className="text-center text-[230px] font-bold  leading-none mb-[180px] ">
+        {/* <h2 className="text-center text-[230px] font-bold  leading-none mb-[180px] ">
           <span className="inline-block  Links" style={{ fontFamily: "rejo" }}>
             s
           </span>
@@ -151,7 +167,7 @@ const HomePage = () => {
           <span className="inline-block Links" style={{ fontFamily: "rejo" }}>
             y
           </span>
-        </h2>
+        </h2> */}
 
         <Button
           ref={btnRef}
