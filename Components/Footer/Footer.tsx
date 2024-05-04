@@ -34,7 +34,7 @@ const Footer = () => {
 
   useGSAP(() => {
     gsap.from(".Links", {
-      y: 300,
+      y: -100,
       duration: 0.7,
       stagger: 0.1,
     });
@@ -108,39 +108,39 @@ const Footer = () => {
           </div>
         </div>
 
-        <h2 className="text-center text-[240px] font-bold  leading-none mt-[-100px] overflow-hidden pb-8">
+        <h2 className="text-center lg:text-[180px] max-lg:text-[120px] pb-[90px]  font-bold leading-none h-auto overflow-hidden">
           <span className="inline-block  Links" style={{ fontFamily: "rejo" }}>
-            s
+            S
           </span>
           <span className="inline-block Links" style={{ fontFamily: "rejo" }}>
-            t
+            T
           </span>
           <span className="inline-block Links" style={{ fontFamily: "rejo" }}>
-            a
+            A
           </span>
           <span className="inline-block Links" style={{ fontFamily: "rejo" }}>
-            y
+            Y
           </span>
           <span className="inline-block Links" style={{ fontFamily: "rejo" }}>
             &nbsp;
           </span>
           <span className="inline-block Links" style={{ fontFamily: "rejo" }}>
-            c
+            C
           </span>
           <span className="inline-block Links" style={{ fontFamily: "rejo" }}>
-            l
+            L
           </span>
           <span className="inline-block Links" style={{ fontFamily: "rejo" }}>
-            a
+            A
           </span>
           <span className="inline-block Links" style={{ fontFamily: "rejo" }}>
-            s
+            S
           </span>
           <span className="inline-block Links" style={{ fontFamily: "rejo" }}>
-            s
+            S
           </span>
           <span className="inline-block Links" style={{ fontFamily: "rejo" }}>
-            y
+            Y
           </span>
         </h2>
       </div>

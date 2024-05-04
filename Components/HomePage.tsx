@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useGlobalState } from "@/context/StateProvider";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { CiSearch } from "react-icons/ci";
 import { Button } from "./ui/button";
 
 const HomePage = () => {
@@ -12,6 +11,7 @@ const HomePage = () => {
   const btnRef = React.useRef<HTMLButtonElement>(null);
   const cursorRef = React.useRef<HTMLDivElement>(null);
   const [hoverPlay, setHoverPlay] = useState(false);
+  const logoRef = React.useRef<HTMLImageElement>(null);
 
   useGSAP(() => {
     gsap.to(" .Links ", {
@@ -101,26 +101,17 @@ const HomePage = () => {
         onMouseLeave={handleMouseLeave}
         className="inner-content h-full w-full text-white relative flex items-center justify-between flex-col z-5"
       >
-        <nav className="w-full flex items-center justify-between font-nb px-12 py-3 text-xs">
+        <nav className="sticky top-0 left-0  w-full flex items-center justify-between font-nb px-12 py-3 text-xs ">
           <h2>
             <Image
               src="/Assets/brand-logo.svg"
               alt="logo"
               height={10}
               width={180}
-              className="z-10 absolute top-5 left-5 cursor-pointer mt-6 ml-4"
+              className="z-10 absolute top-5 left-5 cursor-pointer mt-6 ml-4 "
+              ref={logoRef}
             />
           </h2>
-
-          {/* <span className="relative flex  gap-2 -translate-x-[300px] opacity-30 hover:opacity-100">
-            <CiSearch className="my-auto size-5 mt-2" />
-            <input
-              type="text"
-              id="search"
-              placeholder="Search..."
-              className="text-white p-3 px-1 bg-transparent outline-none border-b-[1px] border-white w-30 h-3 "
-            />
-          </span> */}
 
           <h2 id="menu" className="relative">
             <a href="#" onClick={handleMenu}>

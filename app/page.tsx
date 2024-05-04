@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import Swiper from "swiper";
 import "swiper/swiper-bundle.css";
@@ -9,9 +9,12 @@ import HomePage from "@/Components/HomePage";
 import Page2 from "@/Components/Page2";
 import Footer from "@/Components/Footer/Footer";
 import Page3 from "@/Components/Page3/Page3";
+import FlotingNavBar from "@/Components/FlotingNavBar";
+import Marquee from "@/Components/Marquee";
 
 export default function Home() {
   const ref = useRef(null);
+  const [showFlotingBar, setShowFlotingBar] = useState(false);
   useEffect(() => {
     function page2TopAnim() {
       gsap.from(".first-text h3, .second-text h3", {
@@ -199,7 +202,6 @@ export default function Home() {
         data-scroll-container
         className="main  h-screen"
       >
-        {/* {showFlotingBar ? <FlotingNavBar /> : null} */}
         <Navbar />
         <Loader />
         <HomePage />
@@ -590,6 +592,7 @@ export default function Home() {
             <h1>Meet your team</h1>
           </div>
         </div> */}
+        <Marquee />
         <Footer />
       </main>
     </>
